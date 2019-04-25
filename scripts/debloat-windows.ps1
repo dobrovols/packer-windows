@@ -17,7 +17,7 @@ if ($env:PACKER_BUILDER_TYPE -And $($env:PACKER_BUILDER_TYPE).startsWith("hyperv
   if ($(gp "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion").ProductName.StartsWith("Windows 10")) {
     . $env:TEMP\Debloat-Windows-10-master\scripts\disable-windows-defender.ps1
   } else {
-    Uninstall-WindowsFeature Windows-Defender-Features
+    Uninstall-WindowsFeature -Name Windows-Defender
   }
   Write-host Optimize Windows Update
   . $env:TEMP\Debloat-Windows-10-master\scripts\optimize-windows-update.ps1
