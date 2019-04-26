@@ -43,6 +43,8 @@ if ($zip_url) {
   Set-PSRepository -InstallationPolicy Untrusted -Name PSGallery  
 }
 
+'{\n  "storage-opts": [\n    "size=120GB"\n  ]\n}' | Add-Content 'C:\ProgramData\docker\config\daemon.json'
+
 $ErrorActionPreference = 'Stop'
 Write-Output "Starting docker ..."
 Start-Service docker
